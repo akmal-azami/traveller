@@ -38,6 +38,12 @@ const PlaceDetails = ({ place, refProp, selected }) => {
 					{place.name}
 				</Typography>
 				<Box display="flex" justifyContent="space-between" my={2}>
+					<Rating value={Number(place.rating)} readOnly />
+					<Typography gutterBottom variant="subtitle1">
+						out of {place.num_reviews} reviews
+					</Typography>
+				</Box>
+				<Box display="flex" justifyContent="space-between" my={2}>
 					<Typography variant="subtitle1">Price</Typography>
 					<Typography gutterBottom variant="subtitle1">
 						{place.price_level}
@@ -56,7 +62,7 @@ const PlaceDetails = ({ place, refProp, selected }) => {
 						my={1}
 						alignItems="center"
 					>
-						<img src={award.images.small} />
+						<img src={award.images.small} alt={award.display_name} />
 						<Typography variant="subtitle2" color="textSecondary">
 							{award.display_name}
 						</Typography>

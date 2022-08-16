@@ -9,16 +9,16 @@ import {
 	Select,
 } from "@material-ui/core";
 import useStyles from "./styles.js";
-import PlaceDetails from "../PlaceDetails/PlaceDetails.jsx";
+import PlaceDetails from "../PlaceDetails/PlaceDetails";
 
 const List = ({
+	places,
+	childClicked,
+	isLoading,
 	type,
 	setType,
 	rating,
 	setRating,
-	places,
-	childClicked,
-	isLoading,
 }) => {
 	const classes = useStyles();
 
@@ -34,7 +34,7 @@ const List = ({
 		setElRefs(refs);
 	}, [places]);
 
-	console.log({ childClicked });
+	// console.log({ childClicked });
 	// we usecreateRef, so that when we click on a child then it is going to take us to that poster on the list through the scrollbar
 	return (
 		<div className={classes.formControl}>
@@ -71,7 +71,7 @@ const List = ({
 
 					<Grid container spacing={3} className={classes.list}>
 						{places?.map((place, i) => (
-							<Grid item key={i} xs={12}>
+							<Grid item ref={elRefs[i]}  key={i} xs={12}>
 								<PlaceDetails
 									place={place}
 									selected={Number(childClicked) === i}

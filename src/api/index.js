@@ -14,13 +14,13 @@ export const getPlacesData = async (type, sw, ne) => {
 					tr_longitude: ne.lng,
 				},
 				headers: {
-					"X-RapidAPI-Key": "",
+					"X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_TRAVEL_API_KEY,
 					"X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
 				},
 			}
 		);
 
-		console.log(data, "DATA");
+		// console.log(data, "DATA");
 		return data;
 	} catch (error) {
 		console.log(error);
