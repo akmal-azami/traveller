@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 import { CssBaseline, Grid } from "@material-ui/core";
 import Header from "./components/Header/Header";
 import List from "./components/List/List";
 import Map from "./components/Map/Map";
 import { getPlacesData } from "./api";
+import useAlan from "./Alan";
 
 const App = () => {
+	const alanBtnContainer = useRef();
+	useAlan();
 	const [type, setType] = useState("restaurants");
 	const [rating, setRating] = useState("");
 	const [coordinates, setCoordinates] = useState({});
@@ -70,6 +73,7 @@ const App = () => {
 					/>
 				</Grid>
 			</Grid>
+			<div ref={alanBtnContainer} />
 		</>
 	);
 };

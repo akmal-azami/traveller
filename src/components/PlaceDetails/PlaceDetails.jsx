@@ -96,6 +96,7 @@ const PlaceDetails = ({ place, refProp, selected }) => {
 						size="small"
 						color="primary"
 						onClick={() => window.open(place.web_url, "_blank")}
+						variant="outlined"
 					>
 						Trip Advisor
 					</Button>
@@ -103,6 +104,7 @@ const PlaceDetails = ({ place, refProp, selected }) => {
 						size="small"
 						color="primary"
 						onClick={() => window.open(place.website, "_blank")}
+						variant="outlined"
 					>
 						Website
 					</Button>
